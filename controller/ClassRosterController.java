@@ -39,7 +39,7 @@ public class ClassRosterController {
                     createStudent();
                     break;
                 case 3:
-                    io.print("View Student");
+                    viewStudent();
                     break;
                 case 4:
                     io.print("Remove Student");
@@ -69,6 +69,13 @@ public class ClassRosterController {
         view.displayDisplayAllBanner();
         List<Student> studentList = dao.getAllStudents();
         view.displayStudentList(studentList);
+    }
+    
+    private void viewStudent(){
+        view.displayDisplayAllBanner();
+        String studentId = view.getStudentIdChoice();
+        Student student = dao.getStudent(studentId);
+        view.displayStudent(student);
     }
     
     
